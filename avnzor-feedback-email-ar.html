@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <!--
   TEMPLATE: ENGLISH vs ARABIC (RTL)
-  —————————————————————————————
-  1) ENGLISH (LTR) — default
+  --------------------------------
+  1) ENGLISH (LTR), default
      Keep: <html lang="en" dir="ltr">  <body dir="ltr" lang="en">  and the inner
      <div class="wrapper" lang="en" dir="ltr">  as they are. Edit visible text in place.
 
@@ -19,13 +19,13 @@
      read left-to-right inside RTL Arabic. If you add new similar lines, add the same class.
 
   FOR AN AGENCY / DYNAMIC SENDING
-  —————————————————————————————
+  --------------------------------
   - Static: duplicate this file to avnzor-feedback-en.html and avnzor-feedback-ar.html (or
     one per campaign), set dir/lang as above, paste translated copy in each.
   - Dynamic: your ESP or back-end (SendGrid, Braze, MJML+render, Nunjucks/Handlebars, etc.)
     should output UTF-8 HTML, inject the Arabic or English strings, and set dir+lang
     to "rtl"/ar or "ltr"/en in the final HTML. Merge tags look like
-    {{subject}} / {{body_html}} — the Arabic content body should still be in a
+    {{subject}} / {{body_html}}. The Arabic content body should still be in a
     <div dir="rtl" lang="ar"> or you set the three attributes from variables.
   - If the tool strips <body> attributes, rely on <html> + .wrapper (both set to rtl+ar).
 
@@ -379,7 +379,7 @@
       }
     }
 
-    /* —— Large screens: use the width; scale type & icons to match —— */
+    /* Large screens: use the width; scale type and icons to match */
     @media only screen and (min-width: 700px) {
       .header {
         padding: 30px 48px;
@@ -470,7 +470,7 @@
       }
     }
 
-    /* —— Sm / Md / tablet: stack + wrap so pills stay inside the box (was overflowing 601px–~900px) —— */
+    /* Sm / Md / tablet: stack and wrap so pills stay inside the box (was overflowing 601px to ~900px) */
     @media only screen and (max-width: 900px) {
       .header {
         padding: 20px 20px;
@@ -653,7 +653,7 @@
       <!-- BODY -->
       <div class="body-section">
         <h1>نقدّر ملاحظاتك</h1>
-        <p class="sub">ساعدنا على التحسين — شاركنا رأيك عبر هذا الاستبيان السريع والبسيط. لن يستغرق الأمر سوى
+        <p class="sub">ساعدنا على التحسين. شاركنا رأيك عبر هذا الاستبيان السريع والبسيط، ولن يستغرق الأمر سوى
           دقيقة.</p>
         <div class="btn-wrap">
           <a href="#" class="btn">ابدأ الاستبيان</a>
