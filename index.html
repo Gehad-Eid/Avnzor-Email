@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Avnzor feedback email documentation: English, Arabic, and CRM merge templates with field reference." />
+  <meta name="description" content="Avnzor email docs: static survey invite and response HTML (EN/AR) and CRM merge templates with a field reference guide." />
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
@@ -197,6 +197,12 @@
     .acc-body h3 + ol {
       margin-top: 0;
     }
+    .acc-body ol.steps + h3 {
+      margin-top: 1.15rem;
+    }
+    .bilingual-grid + .survey-guide {
+      margin-top: 1.25rem;
+    }
     .acc-body p.file-meta {
       font-size: 0.88rem;
       color: var(--muted);
@@ -280,8 +286,70 @@
       font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
       font-size: 0.86em;
       background: #eef0f4;
+      color: #1a1d26;
       padding: 0.1em 0.38em;
       border-radius: 4px;
+    }
+    .hero code {
+      background: rgba(255, 255, 255, 0.96);
+      color: #101337;
+    }
+    .survey-guide {
+      margin: 1rem 0 0 0;
+      padding: 0.9rem 1rem 1rem;
+      background: #f4f5fa;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+    .survey-guide h4 {
+      margin: 0 0 0.4rem 0;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--navy);
+    }
+    .survey-guide p {
+      margin: 0 0 0.6rem 0;
+      line-height: 1.5;
+    }
+    .survey-guide p:last-of-type {
+      margin-bottom: 0;
+    }
+    .survey-guide .example {
+      display: block;
+      margin: 0.4rem 0 0.25rem 0;
+      font-weight: 600;
+      color: #333;
+    }
+    .survey-guide .sample-row {
+      display: block;
+      margin: 0.2rem 0 0.2rem 0.75rem;
+      color: var(--muted);
+      font-size: 0.88em;
+    }
+    .survey-guide table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      margin: 0.5rem 0 0.25rem 0;
+    }
+    .survey-guide th,
+    .survey-guide td {
+      border: 1px solid var(--line);
+      padding: 0.4rem 0.5rem;
+      text-align: left;
+      vertical-align: top;
+    }
+    .survey-guide th {
+      background: #e8eaf1;
+      font-weight: 600;
+      color: var(--navy);
+    }
+    .survey-guide td code {
+      font-size: 0.95em;
     }
     footer {
       margin-top: 2.25rem;
@@ -289,6 +357,89 @@
       border-top: 1px solid var(--line);
       font-size: 0.8rem;
       color: var(--muted);
+    }
+    .section-group {
+      margin-bottom: 1.75rem;
+    }
+    /* Air after static block; margin-bottom: 0 so outer margins don’t steal this gap */
+    .section-group:first-of-type {
+      margin-bottom: 0;
+      padding-bottom: 3.5rem;
+    }
+    .section-group + .section-group {
+      clear: both;
+      margin-top: 2.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid #cdd3e0;
+    }
+    @media (min-width: 700px) {
+      .section-group:first-of-type {
+        padding-bottom: 4rem;
+      }
+      .section-group + .section-group {
+        margin-top: 3.25rem;
+        padding-top: 3rem;
+      }
+    }
+    .bilingual-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-top: 0.75rem;
+    }
+    @media (min-width: 560px) {
+      .bilingual-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem 1.15rem;
+        align-items: stretch;
+      }
+    }
+    .bilingual-card {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      background: #f8f9fc;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 0.95rem 1.05rem 1.05rem;
+    }
+    .bilingual-card__label {
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin: 0 0 0.5rem 0;
+    }
+    .bilingual-card__file {
+      margin: 0 0 0.45rem 0;
+      font-size: 0.84rem;
+      line-height: 1.4;
+    }
+    .bilingual-card__file code {
+      font-size: 0.92em;
+      word-break: break-all;
+    }
+    .bilingual-card__hint {
+      margin: 0 0 0.9rem 0;
+      font-size: 0.86rem;
+      line-height: 1.5;
+      color: var(--muted);
+      flex: 1 1 auto;
+    }
+    .bilingual-card__actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+      margin-top: auto;
+    }
+    .bilingual-card__actions .icon-link {
+      justify-content: center;
+      font-size: 0.85rem;
+      padding: 0.5rem 0.5rem;
+    }
+    .bilingual-card__actions .icon-link span.label {
+      font-size: 0.9em;
     }
   </style>
 </head>
@@ -305,8 +456,8 @@
       <div class="eyebrow">Documentation</div>
       <h1>Feedback email templates</h1>
       <p class="lead">
-        Internal reference for campaign and CRM teams. Download ready-to-use HTML, or the merge version with placeholders
-        and the field table for tools such as HubSpot, Salesforce, or your ESP.
+        Internal reference: <strong>static</strong> HTML (edit in the file) and <strong>CRM</strong> merge templates
+        with <code>{{placeholders}}</code> for HubSpot, Salesforce, or your ESP, plus a shared field guide.
       </p>
     </div>
   </div>
@@ -315,55 +466,85 @@
     <section class="intro" aria-labelledby="about-heading">
       <h2 id="about-heading" class="section-title" style="margin-top:0;margin-bottom:0.6rem">About this page</h2>
       <p>
-        This site hosts three deliverables: a final <strong>English</strong> message, a final <strong>Arabic</strong> (RTL) message,
-        and a single <strong>CRM</strong> template with <code>{{placeholders}}</code> plus a separate <strong>field guide</strong> (English/Arabic example text).
-        Use the sections below to preview or download each file, and follow the short setup notes inside each block.
+        Use the groups below: <strong>Static HTML</strong> files are ready to open or send after you edit the survey link or
+        text in the source. <strong>CRM / merge</strong> files use <code>{{placeholders}}</code> so your ESP or CRM can inject
+        language, direction, and copy per audience. The <strong>field guide</strong> lists every token with English and Arabic
+        examples for both merge templates.
+      </p>
+      <p style="margin-top:0.75rem;font-size:0.9rem;color:var(--muted)">
+        Jump to:
+        <a href="#static-templates" style="color:var(--navy);font-weight:600">Static HTML</a>
+        &nbsp;·&nbsp;
+        <a href="#crm-templates" style="color:var(--navy);font-weight:600">CRM / merge</a>
       </p>
     </section>
 
-    <h2 class="section-title">Templates</h2>
-    <div class="accordion" id="acc">
+    <div class="section-group">
+    <h2 class="section-title" id="static-templates">Static HTML (fixed copy in the file)</h2>
+    <div class="accordion" id="acc-static">
 
       <details class="acc-item" data-accordion>
         <summary>
           <span class="acc-title">
             <span class="acc-num" aria-hidden="true">1</span>
-            English (LTR) template
+            Survey invite
           </span>
           <svg class="acc-chev" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M6 9l6 6 6-6" />
           </svg>
         </summary>
         <div class="acc-body">
-          <h3>File</h3>
-          <p class="file-meta"><code>avnzor-feedback-email.html</code> &middot; LTR, English copy only</p>
-          <h3>About this template</h3>
-          <p class="desc">
-            Fixed layout: header, body with headline and CTA, feature strip, footer with social, contact, and center logo. Images and
-            links point to live Avnzor assets and channels. No merge tags; use as-is for English sends or as a design reference.
-          </p>
-          <h3>How to use</h3>
-          <ol class="steps">
-            <li>Import the file into your email or CRM (HTML content block) or hand it to your email developer.</li>
-            <li>Point the CTA to your real survey or feedback form URL in the code.</li>
-            <li>Test in major clients (Gmail, Outlook) before scheduling the campaign.</li>
-          </ol>
-          <div class="icon-row" role="group" aria-label="English template actions">
-            <a class="icon-link primary" href="avnzor-feedback-email.html" target="_blank" rel="noopener" title="Open preview in a new tab">
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
-                <circle cx="12" cy="12" r="3" />
-              </svg>
-              <span class="label">Preview</span>
-            </a>
-            <a class="icon-link" href="avnzor-feedback-email.html" download="avnzor-feedback-email.html" title="Download HTML file">
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                <path d="M7 10l5 5 5-5" />
-                <path d="M12 15V3" />
-              </svg>
-              <span class="label">Download</span>
-            </a>
+          <h3>By language</h3>
+          <p class="file-meta" style="margin-bottom:0">One column per file: preview in the browser or download the HTML.</p>
+          <div class="bilingual-grid" role="group" aria-label="Survey invite static files">
+            <div class="bilingual-card">
+              <div class="bilingual-card__label">English · LTR</div>
+              <p class="bilingual-card__file"><code>avnzor-feedback-email.html</code></p>
+              <p class="bilingual-card__hint">
+                Headline, CTA, features, footer. Set the CTA <code>href</code> to your form, then test in Gmail and Outlook.
+              </p>
+              <div class="bilingual-card__actions" role="group" aria-label="English invite">
+                <a class="icon-link primary" href="avnzor-feedback-email.html" target="_blank" rel="noopener" title="Preview English invite in a new tab">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                  <span class="label">Preview</span>
+                </a>
+                <a class="icon-link" href="avnzor-feedback-email.html" download="avnzor-feedback-email.html" title="Download English invite HTML">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <path d="M7 10l5 5 5-5" />
+                    <path d="M12 15V3" />
+                  </svg>
+                  <span class="label">Download</span>
+                </a>
+              </div>
+            </div>
+            <div class="bilingual-card">
+              <div class="bilingual-card__label">Arabic · RTL</div>
+              <p class="bilingual-card__file"><code>avnzor-feedback-email-ar.html</code></p>
+              <p class="bilingual-card__hint">
+                Same layout; <code>dir=&quot;rtl&quot;</code> and <code>lang=&quot;ar&quot;</code>. Contact lines that must stay LTR use a class. Test in Apple Mail and Outlook too.
+              </p>
+              <div class="bilingual-card__actions" role="group" aria-label="Arabic invite">
+                <a class="icon-link primary" href="avnzor-feedback-email-ar.html" target="_blank" rel="noopener" title="Preview Arabic invite in a new tab">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                  <span class="label">Preview</span>
+                </a>
+                <a class="icon-link" href="avnzor-feedback-email-ar.html" download="avnzor-feedback-email-ar.html" title="Download Arabic invite HTML">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <path d="M7 10l5 5 5-5" />
+                    <path d="M12 15V3" />
+                  </svg>
+                  <span class="label">Download</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </details>
@@ -372,7 +553,148 @@
         <summary>
           <span class="acc-title">
             <span class="acc-num" aria-hidden="true">2</span>
-            Arabic (RTL) template
+            Survey response (thank you + answers)
+          </span>
+          <svg class="acc-chev" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </summary>
+        <div class="acc-body">
+          <h3>About</h3>
+          <p class="desc">
+            Send after someone submits a survey: thank-you line, subline, then two question/answer rows. In these static files,
+            replace the sample <code>{{QUESTION_*}}</code> and <code>{{ANSWER_*}}</code> tags in the HTML with real content (or your tool
+            outputs merged HTML). For a <strong>single merge file</strong> for EN and AR, use
+            <code>avnzor-feedback-response-email-CRM.html</code> in the section below. Field reference:
+            <a href="avnzor-feedback-email-CRM-FIELDS.html#response-crm" target="_blank" rel="noopener">field guide, section 5</a>.
+          </p>
+          <h3>How to use</h3>
+          <ol class="steps">
+            <li>Map survey fields into the placeholders, or paste text for a one-off test.</li>
+            <li>Optional emoji in <code>ANSWER_*_EMOJI</code>; short label in <code>ANSWER_*_TEXT</code>.</li>
+            <li>Test in Gmail and Outlook before automating.</li>
+          </ol>
+          <h3>By language (static only)</h3>
+          <p class="file-meta" style="margin-bottom:0">Each card is one HTML file. For a single merge file for both languages, use the CRM block below.</p>
+          <div class="bilingual-grid" role="group" aria-label="Survey response static files">
+            <div class="bilingual-card">
+              <div class="bilingual-card__label">English · LTR</div>
+              <p class="bilingual-card__file"><code>avnzor-feedback-response-email.html</code></p>
+              <p class="bilingual-card__hint">Thank-you, Q&amp;A rows with <code>{{QUESTION_*}}</code> / <code>{{ANSWER_*}}</code> placeholders in the source.</p>
+              <div class="bilingual-card__actions" role="group" aria-label="English response">
+                <a class="icon-link primary" href="avnzor-feedback-response-email.html" target="_blank" rel="noopener" title="Preview English response template in a new tab">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                  <span class="label">Preview</span>
+                </a>
+                <a class="icon-link" href="avnzor-feedback-response-email.html" download="avnzor-feedback-response-email.html" title="Download English response HTML">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <path d="M7 10l5 5 5-5" />
+                    <path d="M12 15V3" />
+                  </svg>
+                  <span class="label">Download</span>
+                </a>
+              </div>
+            </div>
+            <div class="bilingual-card">
+              <div class="bilingual-card__label">Arabic · RTL</div>
+              <p class="bilingual-card__file"><code>avnzor-feedback-response-email-ar.html</code></p>
+              <p class="bilingual-card__hint">Same structure with RTL document and Arabic UI; use the CRM file if you prefer one template for both.</p>
+              <div class="bilingual-card__actions" role="group" aria-label="Arabic response">
+                <a class="icon-link primary" href="avnzor-feedback-response-email-ar.html" target="_blank" rel="noopener" title="Preview Arabic response template in a new tab">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                  <span class="label">Preview</span>
+                </a>
+                <a class="icon-link" href="avnzor-feedback-response-email-ar.html" download="avnzor-feedback-response-email-ar.html" title="Download Arabic response HTML">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <path d="M7 10l5 5 5-5" />
+                    <path d="M12 15V3" />
+                  </svg>
+                  <span class="label">Download</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="survey-guide" aria-label="Survey design guidelines for the response email">
+            <h4>Survey design guidelines (for the form you build)</h4>
+            <p>
+              <strong>Questions</strong> should be <strong>short and scannable</strong> (ideally one line, under ~100 characters), clear, and
+              in plain language. The email will show the full question text in bold on the left, so avoid long paragraphs.
+            </p>
+            <p>
+              <strong>How answers look in the email</strong> (right side): one <strong>emoji</strong> plus a <strong>short label</strong> on
+              the same line, e.g.:
+            </p>
+            <span class="example">Example (stacked, as in the template)</span>
+            <span class="sample-row">☺️ &nbsp;Satisfied</span>
+            <span class="sample-row">😔 &nbsp;Disappointed</span>
+            <p style="margin-top: 0.75rem">
+              <strong>1 to 5 scale (recommended for satisfaction-style questions):</strong> in your survey tool, use a 1-5 choice.
+              When you build the message to customers, <strong>map the numeric answer</strong> to an emoji and label the template expects:
+            </p>
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Score</th>
+                  <th scope="col">Suggested emoji (for <code>ANSWER_*_EMOJI</code>)</th>
+                  <th scope="col">Suggested label (for <code>ANSWER_*_TEXT</code>)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>😔</td>
+                  <td>Very disappointed</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>😕</td>
+                  <td>Disappointed</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>😐</td>
+                  <td>Neutral</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>🙂</td>
+                  <td>Satisfied</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>☺️ or 😊</td>
+                  <td>Very satisfied</td>
+                </tr>
+              </tbody>
+            </table>
+            <p style="margin-top: 0.65rem; font-size: 0.86em; color: var(--muted)">
+              Your team can change emoji or labels to match brand tone, as long as each response still maps to
+              <strong>one emoji string</strong> and <strong>one label string</strong> per question row. For non-scale questions, still use a
+              short label (and an emoji if it helps, or leave the emoji field empty).
+            </p>
+          </div>
+        </div>
+      </details>
+    </div>
+    </div>
+
+    <div class="section-group">
+    <h2 class="section-title" id="crm-templates">CRM / merge ({{placeholders}} per send or audience)</h2>
+    <div class="accordion" id="acc-crm">
+
+      <details class="acc-item" data-accordion>
+        <summary>
+          <span class="acc-title">
+            <span class="acc-num" aria-hidden="true">3</span>
+            Field guide (token reference)
           </span>
           <svg class="acc-chev" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M6 9l6 6 6-6" />
@@ -380,27 +702,22 @@
         </summary>
         <div class="acc-body">
           <h3>File</h3>
-          <p class="file-meta"><code>avnzor-feedback-email-ar.html</code> &middot; RTL, Arabic copy</p>
-          <h3>About this template</h3>
+          <p class="file-meta"><code>avnzor-feedback-email-CRM-FIELDS.html</code></p>
+          <h3>About</h3>
           <p class="desc">
-            Same structure as the English file with <code>dir=&quot;rtl&quot;</code> and <code>lang=&quot;ar&quot;</code> set on the document, wrapper, and
-            <code>Content-Language</code> metadata. Contact lines that must stay LTR (phone, email) use a dedicated class. No merge tags.
+            Lists every <code>{{FIELD}}</code> with <strong>English and Arabic</strong> example values for the <strong>invite</strong> and
+            <strong>survey response</strong> merge templates, plus <code>lang</code> / <code>dir</code> tokens. Use it for localization handoff
+            and mapping to HubSpot, Salesforce, or your ESP.
           </p>
-          <h3>How to use</h3>
-          <ol class="steps">
-            <li>Import the HTML the same way as the English file; your ESP may let you set message language to Arabic for analytics.</li>
-            <li>Update the CTA to your real survey or bilingual form link.</li>
-            <li>Run an inbox test for RTL: Gmail, Apple Mail, and Outlook in web and desktop.</li>
-          </ol>
-          <div class="icon-row" role="group" aria-label="Arabic template actions">
-            <a class="icon-link primary" href="avnzor-feedback-email-ar.html" target="_blank" rel="noopener" title="Open preview in a new tab">
+          <div class="icon-row" role="group" aria-label="Field guide actions" style="margin-top:0.5rem">
+            <a class="icon-link primary" href="avnzor-feedback-email-CRM-FIELDS.html" target="_blank" rel="noopener" title="Open field guide in a new tab">
               <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
                 <circle cx="12" cy="12" r="3" />
               </svg>
-              <span class="label">Preview</span>
+              <span class="label">Open guide</span>
             </a>
-            <a class="icon-link" href="avnzor-feedback-email-ar.html" download="avnzor-feedback-email-ar.html" title="Download HTML file">
+            <a class="icon-link" href="avnzor-feedback-email-CRM-FIELDS.html" download="avnzor-feedback-email-CRM-FIELDS.html" title="Download field guide as HTML">
               <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
                 <path d="M7 10l5 5 5-5" />
@@ -415,46 +732,37 @@
       <details class="acc-item" data-accordion>
         <summary>
           <span class="acc-title">
-            <span class="acc-num" aria-hidden="true">3</span>
-            CRM template and placeholders
+            <span class="acc-num" aria-hidden="true">4</span>
+            Survey invite (merge template)
           </span>
           <svg class="acc-chev" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M6 9l6 6 6-6" />
           </svg>
         </summary>
         <div class="acc-body">
-          <h3>Files</h3>
-          <p class="file-meta"><code>avnzor-feedback-email-CRM.html</code> (merge) &middot; <code>avnzor-feedback-email-CRM-FIELDS.html</code> (field guide)</p>
-          <h3>About these files</h3>
+          <h3>File</h3>
+          <p class="file-meta"><code>avnzor-feedback-email-CRM.html</code></p>
+          <h3>About</h3>
           <p class="desc">
-            The <strong>CRM</strong> file reuses the same design but replaces translatable text, document language, and the survey
-            CTA with <code>{{...}}</code> tags. One file can back both English and Arabic if your tool fills <code>lang</code> and
-            <code>dir</code> plus copy per audience. The <strong>field guide</strong> lists every token with example English and Arabic
-            phrasing, for mapping into HubSpot, Salesforce, Marketo, or similar. Social, contact, and static icon URLs are hardcoded
-            in the template.
+            Same design as the static invite; all visible copy, <code>lang</code> / <code>dir</code>, and the survey CTA are merge fields. One
+            file can serve English and Arabic if your tool fills the tokens per audience. Set <code>{{CTA_URL}}</code> to the live form
+            link. See the <a href="avnzor-feedback-email-CRM-FIELDS.html" target="_blank" rel="noopener">field guide</a> for the full list.
           </p>
           <h3>How to use</h3>
           <ol class="steps">
-            <li>Open the field guide and copy or import it into a spreadsheet or Google Doc for localization handoff.</li>
-            <li>Wire each <code>{{placeholder}}</code> in the CRM file to a platform merge field, or do a one-time replace for a static test.</li>
-            <li>Set <code>{{CTA_URL}}</code> to the live feedback or survey link (per send or per contact, depending on your data).</li>
-            <li>After merge, test send to internal addresses before the full send.</li>
+            <li>Map each <code>{{placeholder}}</code> to your platform merge field (or replace once for a test).</li>
+            <li>Align <code>{{HTML_LANG}}</code> / <code>{{HTML_DIR}}</code> (and body, wrapper) with the language of the strings you inject.</li>
+            <li>Test send to internal inboxes before going live.</li>
           </ol>
-          <p class="extra">
-            Field reference (EN/AR):
-            <a href="avnzor-feedback-email-CRM-FIELDS.html" target="_blank" rel="noopener">open guide</a>
-            or
-            <a href="avnzor-feedback-email-CRM-FIELDS.html" download>download the guide as HTML</a>.
-          </p>
-          <div class="icon-row" role="group" aria-label="CRM template actions">
-            <a class="icon-link primary" href="avnzor-feedback-email-CRM.html" target="_blank" rel="noopener" title="Open CRM template preview in a new tab">
+          <div class="icon-row" role="group" aria-label="Invite CRM template actions">
+            <a class="icon-link primary" href="avnzor-feedback-email-CRM.html" target="_blank" rel="noopener" title="Open invite CRM template in a new tab">
               <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
                 <circle cx="12" cy="12" r="3" />
               </svg>
               <span class="label">Preview</span>
             </a>
-            <a class="icon-link" href="avnzor-feedback-email-CRM.html" download="avnzor-feedback-email-CRM.html" title="Download CRM template HTML file">
+            <a class="icon-link" href="avnzor-feedback-email-CRM.html" download="avnzor-feedback-email-CRM.html" title="Download invite CRM HTML">
               <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
                 <path d="M7 10l5 5 5-5" />
@@ -465,6 +773,52 @@
           </div>
         </div>
       </details>
+
+      <details class="acc-item" data-accordion>
+        <summary>
+          <span class="acc-title">
+            <span class="acc-num" aria-hidden="true">5</span>
+            Survey response (merge template)
+          </span>
+          <svg class="acc-chev" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </summary>
+        <div class="acc-body">
+          <h3>File</h3>
+          <p class="file-meta"><code>avnzor-feedback-response-email-CRM.html</code></p>
+          <h3>About</h3>
+          <p class="desc">
+            Thank-you and Q&amp;A rows with the same shell fields as the invite merge file (<code>{{H1}}</code>, features, footer, etc.), plus
+            <code>{{QUESTION_*}}</code> and <code>{{ANSWER_*}}</code>. No CTA. Response-specific copy and survey row examples are in the
+            <a href="avnzor-feedback-email-CRM-FIELDS.html#response-crm" target="_blank" rel="noopener">field guide, section 5</a>.
+          </p>
+          <h3>How to use</h3>
+          <ol class="steps">
+            <li>Fill document <code>lang</code> / <code>dir</code> fields for the language of the merged strings.</li>
+            <li>Map <code>QUESTION_*</code> and <code>ANSWER_*</code> from your form workflow.</li>
+            <li>Test in Gmail/Outlook, then connect your automation.</li>
+          </ol>
+          <div class="icon-row" role="group" aria-label="Response CRM template actions">
+            <a class="icon-link primary" href="avnzor-feedback-response-email-CRM.html" target="_blank" rel="noopener" title="Open response CRM template in a new tab">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+              <span class="label">Preview</span>
+            </a>
+            <a class="icon-link" href="avnzor-feedback-response-email-CRM.html" download="avnzor-feedback-response-email-CRM.html" title="Download response CRM HTML">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <path d="M7 10l5 5 5-5" />
+                <path d="M12 15V3" />
+              </svg>
+              <span class="label">Download</span>
+            </a>
+          </div>
+        </div>
+      </details>
+    </div>
     </div>
 
     <footer>

@@ -6,7 +6,7 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
-  <title>Avnzor feedback email: CRM merge fields (EN / AR)</title>
+  <title>Avnzor feedback &amp; response emails: CRM merge fields (EN / AR)</title>
   <style>
     body {
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -70,8 +70,8 @@
 </head>
 <body>
 
-  <h1>Avnzor feedback email (CRM): merge fields and copy (English / Arabic)</h1>
-  <p class="muted">Reference for implementing <code>avnzor-feedback-email-CRM.html</code>. Replace each <code>{{FIELD_NAME}}</code> in the HTML with your platform’s merge syntax, or with the values below for static sends.</p>
+  <h1>Avnzor feedback &amp; response emails (CRM): merge fields and copy (English / Arabic)</h1>
+  <p class="muted">Reference for implementing <code>avnzor-feedback-email-CRM.html</code> (invite / survey request) and <code>avnzor-feedback-response-email-CRM.html</code> (thank you + copy of answers). Replace each <code>{{FIELD_NAME}}</code> in the HTML with your platform’s merge syntax, or with the values below for static sends. Document language and direction: same tokens for both; see section 1.</p>
 
   <p class="note"><strong>Survey link:</strong> <code>{{CTA_URL}}</code> must be the real feedback/survey URL (often the same in both languages if the form is bilingual). Set this per campaign or per contact, depending on your tool.</p>
 
@@ -96,7 +96,8 @@
     </tbody>
   </table>
 
-  <h2>2. Main copy</h2>
+  <h2>2. Main copy (invite email only: <code>avnzor-feedback-email-CRM.html</code>)</h2>
+  <p class="muted">The survey <strong>response</strong> template reuses the same field <em>names</em> for the shell (<code>{{H1}}</code>, <code>{{BODY_LEAD}}</code>, features, sign-off, footer) but you supply copy appropriate to that message; see <a href="#response-crm">section 5</a>. It has no CTA block.</p>
   <table>
     <thead>
       <tr>
@@ -215,8 +216,67 @@
     </tbody>
   </table>
 
-  <h2>5. Not merged in the template (fixed in HTML)</h2>
-  <p class="muted">Logos, feature icon images, phone, email, website, WhatsApp, and social network links are hardcoded in <code>avnzor-feedback-email-CRM.html</code> and are not listed as fields above.</p>
+  <h2 id="response-crm">5. Survey response email (<code>avnzor-feedback-response-email-CRM.html</code>)</h2>
+  <p class="muted">Use the same <strong>section 1</strong> values for <code>{{HTML_LANG}}</code>, <code>{{HTML_DIR}}</code>, <code>{{BODY_*}}</code>, <code>{{WRAPPER_*}}</code>, and <code>{{CONTENT_LANG}}</code>. Reuse <strong>sections 3–4</strong> for features and footer. There is <strong>no</strong> <code>{{CTA_URL}}</code> or <code>{{CTA_LABEL}}</code> in this file.</p>
+  <h3>5a. Thank-you and intro (token names match section 2; use response wording)</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Field</th>
+        <th>English</th>
+        <th>Arabic</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>{{EMAIL_TITLE}}</code></td>
+        <td>Avnzor – Thank you for your time</td>
+        <td>أڤنزور – شكرًا لوقتك</td>
+      </tr>
+      <tr>
+        <td><code>{{H1}}</code></td>
+        <td>Thank you for your time</td>
+        <td>شكرًا لوقتك</td>
+      </tr>
+      <tr>
+        <td><code>{{BODY_LEAD}}</code></td>
+        <td>Here’s a copy of your survey answers.</td>
+        <td>هذه نسخة من إجاباتك على الاستبيان.</td>
+      </tr>
+      <tr>
+        <td><code>{{SIGN_OFF_LINE}}</code> / <code>{{TEAM_LINE}}</code></td>
+        <td>Best Regards / Avnzor team</td>
+        <td>مع أطيب التحيات / فريق أڤنزور</td>
+      </tr>
+      <tr>
+        <td><code>{{BRAND_NAME}}</code></td>
+        <td>Avnzor</td>
+        <td>أڤنزور</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>5b. Survey rows (per submission)</h3>
+  <p class="muted">Map from your form or workflow. <code>ANSWER_*_EMOJI</code> may be empty; put the short label in <code>ANSWER_*_TEXT</code>.</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Field</th>
+        <th>Example (EN)</th>
+        <th>Example (AR)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><code>{{QUESTION_1}}</code></td><td>How satisfied are you with your experience?</td><td>ما مدى رضاك عن التجربة؟</td></tr>
+      <tr><td><code>{{ANSWER_1_EMOJI}}</code></td><td>🙂</td><td>🙂</td></tr>
+      <tr><td><code>{{ANSWER_1_TEXT}}</code></td><td>Satisfied</td><td>راضٍ</td></tr>
+      <tr><td><code>{{QUESTION_2}}</code></td><td>Would you recommend us?</td><td>هل توصي بنا؟</td></tr>
+      <tr><td><code>{{ANSWER_2_EMOJI}}</code></td><td>☺️</td><td>☺️</td></tr>
+      <tr><td><code>{{ANSWER_2_TEXT}}</code></td><td>Yes</td><td>نعم</td></tr>
+    </tbody>
+  </table>
+
+  <h2>6. Not merged in the template (fixed in HTML)</h2>
+  <p class="muted">Logos, feature icon images, phone, email, website, WhatsApp, and social network links are hardcoded in the CRM HTML files and are not listed as merge fields above.</p>
 
   <p class="muted" style="margin-top:2rem;">End of reference</p>
 

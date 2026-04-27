@@ -1,37 +1,6 @@
+
 <!DOCTYPE html>
-<!--
-  TEMPLATE: ENGLISH vs ARABIC (RTL)
-  --------------------------------
-  1) ENGLISH (LTR), default
-     Keep: <html lang="en" dir="ltr">  <body dir="ltr" lang="en">  and the inner
-     <div class="wrapper" lang="en" dir="ltr">  as they are. Edit visible text in place.
 
-  2) ARABIC (RTL)
-     Change ALL THREE to the same values (required for correct layout in email clients):
-       <html lang="ar" dir="rtl">
-       <body dir="rtl" lang="ar">
-       <div class="wrapper" lang="ar" dir="rtl">
-     Then replace the English strings (headings, feature titles, body copy, footer) with
-     your Arabic. Save the file as UTF-8 (Encoding → UTF-8) so characters display correctly.
-
-  3) PHONE / EMAIL / URL LINES
-     The contact row spans for numbers and Latin email/URL use class="text-ltr" so they stay
-     read left-to-right inside RTL Arabic. If you add new similar lines, add the same class.
-
-  FOR AN AGENCY / DYNAMIC SENDING
-  --------------------------------
-  - Static: duplicate this file to avnzor-feedback-en.html and avnzor-feedback-ar.html (or
-    one per campaign), set dir/lang as above, paste translated copy in each.
-  - Dynamic: your ESP or back-end (SendGrid, Braze, MJML+render, Nunjucks/Handlebars, etc.)
-    should output UTF-8 HTML, inject the Arabic or English strings, and set dir+lang
-    to "rtl"/ar or "ltr"/en in the final HTML. Merge tags look like
-    {{subject}} / {{body_html}}. The Arabic content body should still be in a
-    <div dir="rtl" lang="ar"> or you set the three attributes from variables.
-  - If the tool strips <body> attributes, rely on <html> + .wrapper (both set to rtl+ar).
-
-  THIS FILE (avnzor-feedback-email-ar.html) = Arabic copy: all visible text translated; use with
-  lang="ar" dir="rtl" on html, body, and .wrapper (set below).
--->
 <html lang="ar" dir="rtl">
 
 <head>
@@ -41,7 +10,7 @@
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
   <meta http-equiv="Content-Language" content="ar" />
-  <title>أڤنزور – نقدّر ملاحظاتك</title>
+  <title>أڤنزور - شكرًا لوقتك</title>
   <style>
     * {
       margin: 0;
@@ -136,6 +105,85 @@
       color: #777777;
       line-height: 1.65;
       margin-bottom: 38px;
+    }
+
+
+    .responses {
+      margin-bottom: 44px;
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
+    }
+
+    .response-item {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 42%);
+      column-gap: 6px;
+      row-gap: 0;
+      align-items: start;
+      margin-bottom: 26px;
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
+    }
+
+    .response-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .response-question {
+      min-width: 0;
+      max-width: 100%;
+      font-size: 14px;
+      line-height: 1.45;
+      font-weight: 700;
+      color: #111111;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .response-answer {
+      display: flex;
+      min-width: 0;
+      justify-content: flex-end;
+      align-items: flex-start;
+    }
+
+    .response-answer-pair {
+      display: inline-flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: flex-end;
+      max-width: 100%;
+      min-width: 0;
+      gap: 4px;
+      font-size: 15px;
+      line-height: 1.25;
+      color: #707070;
+    }
+
+    .response-answer-emoji {
+      margin: 0;
+      font-size: inherit;
+      line-height: inherit;
+      color: inherit;
+      flex: 0 0 auto;
+    }
+
+    .response-answer-text {
+      margin: 0;
+      font-size: inherit;
+      line-height: inherit;
+      color: inherit;
+      min-width: 0;
+      flex: 1 1 auto;
+      text-align: end;
+      white-space: normal;
+      overflow-wrap: anywhere;
+      word-break: break-word;
     }
 
     .btn-wrap {
@@ -410,6 +458,14 @@
         padding: 20px 80px;
       }
 
+      .response-question {
+        font-size: 15px;
+      }
+
+      .response-answer-pair {
+        font-size: 16px;
+      }
+
       .features {
         padding: 36px 32px;
       }
@@ -470,6 +526,26 @@
     @media only screen and (min-width: 1100px) {
       .body-section {
         padding: 64px 72px 56px;
+      }
+    }
+
+    @media only screen and (max-width: 1100px) and (min-width: 901px) {
+      .response-item {
+        grid-template-columns: 1fr;
+        row-gap: 6px;
+      }
+
+      .response-answer {
+        justify-content: flex-start;
+      }
+
+      .response-answer-pair {
+        max-width: 100%;
+        justify-content: flex-start;
+      }
+
+      .response-answer-text {
+        text-align: start;
       }
     }
 
@@ -616,6 +692,35 @@
         word-break: break-word;
         text-align: start;
       }
+
+      .response-item {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+        margin-bottom: 20px;
+      }
+
+      .response-question {
+        width: 100%;
+        font-size: 14px;
+      }
+
+      .response-answer {
+        width: 100%;
+        max-width: 100%;
+        justify-content: flex-start;
+      }
+
+      .response-answer-pair {
+        font-size: 15px;
+        max-width: 100%;
+        justify-content: flex-start;
+      }
+
+      .response-answer-text {
+        text-align: start;
+      }
     }
 
     @media only screen and (max-width: 380px) {
@@ -640,6 +745,14 @@
       .contact-row span {
         font-size: 11px;
       }
+
+      .response-question {
+        font-size: 13px;
+      }
+
+      .response-answer-pair {
+        font-size: 14px;
+      }
     }
   </style>
 </head>
@@ -655,12 +768,29 @@
 
       <!-- BODY -->
       <div class="body-section">
-        <h1>نقدّر ملاحظاتك</h1>
-        <p class="sub">ساعدنا على التحسين. شاركنا رأيك عبر هذا الاستبيان السريع والبسيط، ولن يستغرق الأمر سوى
-          دقيقة.</p>
-        <div class="btn-wrap">
-          <a href="#" class="btn">ابدأ الاستبيان</a>
+        <h1>شكرًا لوقتك</h1>
+        <p class="sub">هذه نسخة من إجاباتك على الاستبيان.</p>
+
+        <div class="responses">
+          <div class="response-item">
+            <div class="response-question">{{QUESTION_1}}</div>
+            <div class="response-answer">
+              <span class="response-answer-pair">
+                <span class="response-answer-emoji">{{ANSWER_1_EMOJI}}</span><span class="response-answer-text">{{ANSWER_1_TEXT}}</span>
+              </span>
+            </div>
+          </div>
+
+          <div class="response-item">
+            <div class="response-question">{{QUESTION_2}}</div>
+            <div class="response-answer">
+              <span class="response-answer-pair">
+                <span class="response-answer-emoji">{{ANSWER_2_EMOJI}}</span><span class="response-answer-text">{{ANSWER_2_TEXT}}</span>
+              </span>
+            </div>
+          </div>
         </div>
+
         <p class="sign-off-line">مع أطيب التحيات</p>
         <p class="sign-off-name">فريق أڤنزور</p>
       </div>
