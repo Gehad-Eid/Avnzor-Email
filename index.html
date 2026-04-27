@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Avnzor feedback email documentation: English, Arabic, and CRM merge templates with field reference." />
+  <title>Avnzor · Email template documentation</title>
+  <style>
+    :root {
+      --navy: #000046;
+      --navy-mid: #0a0a5c;
+      --navy-hover: #12127a;
+      --text: #1a1d26;
+      --muted: #5c6470;
+      --line: #e0e4ed;
+      --bg: #eef0f4;
+      --card: #ffffff;
+      --radius: 12px;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+      min-height: 100vh;
+    }
+    .page {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 1.25rem 3.5rem;
+    }
+    .hero {
+      background: linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 48%, #1a1a4a 100%);
+      color: #fff;
+      margin: 0 -1.25rem 2rem;
+      padding: 2.5rem 1.5rem 2.75rem;
+      box-shadow: 0 8px 32px rgba(0, 0, 70, 0.2);
+    }
+    @media (min-width: 900px) {
+      .hero {
+        margin: 0 0 2.25rem;
+        border-radius: 0 0 16px 16px;
+      }
+    }
+    .hero-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .hero-logo {
+      display: block;
+      height: 44px;
+      width: auto;
+      max-width: min(220px, 70vw);
+      object-fit: contain;
+      object-position: left center;
+      margin: 0 0 0.9rem 0;
+    }
+    @media (min-width: 640px) {
+      .hero-logo {
+        height: 52px;
+        margin-bottom: 1rem;
+      }
+    }
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      opacity: 0.85;
+      margin: 0 0 0.5rem 0;
+    }
+    .hero h1 {
+      margin: 0 0 0.65rem;
+      font-size: clamp(1.45rem, 4vw, 1.85rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+    }
+    .hero p.lead {
+      margin: 0;
+      max-width: 40em;
+      font-size: 0.98rem;
+      line-height: 1.65;
+      opacity: 0.92;
+    }
+    .intro {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.4rem 1.5rem 1.5rem;
+      margin-bottom: 1.75rem;
+      box-shadow: 0 2px 16px rgba(0, 0, 50, 0.05);
+    }
+    .intro p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+    .intro p + p {
+      margin-top: 0.75rem;
+    }
+    h2.section-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 0.9rem 0.15rem;
+    }
+    .accordion {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .acc-item {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0, 0, 50, 0.04);
+    }
+    .acc-item[open] {
+      box-shadow: 0 4px 20px rgba(0, 0, 50, 0.08);
+      border-color: #c5cce0;
+    }
+    .acc-item summary {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem 1.15rem;
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--navy);
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.15s ease;
+    }
+    .acc-item summary:hover {
+      background: #f8f9fc;
+    }
+    .acc-item[open] summary {
+      background: #f4f5fa;
+      border-bottom: 1px solid var(--line);
+    }
+    .acc-item summary::-webkit-details-marker {
+      display: none;
+    }
+    .acc-title {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .acc-num {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.75rem;
+      height: 1.75rem;
+      border-radius: 8px;
+      background: var(--navy);
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+    .acc-chev {
+      flex-shrink: 0;
+      width: 1.25rem;
+      height: 1.25rem;
+      color: var(--muted);
+      transition: transform 0.2s ease;
+    }
+    .acc-item[open] .acc-chev {
+      transform: rotate(180deg);
+    }
+    .acc-body {
+      padding: 1.1rem 1.25rem 1.35rem 1.25rem;
+    }
+    .acc-body h3 {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 0.45rem 0;
+    }
+    .acc-body h3 + p,
+    .acc-body h3 + ol {
+      margin-top: 0;
+    }
+    .acc-body p.file-meta {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin: 0 0 0.2rem 0;
+    }
+    .acc-body p.file-meta code {
+      font-size: 0.9em;
+    }
+    .acc-body p.desc {
+      font-size: 0.95rem;
+      color: var(--text);
+      margin: 0 0 1.1rem 0;
+    }
+    .acc-body ol.steps {
+      margin: 0 0 0 0;
+      padding-left: 1.2rem;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+    .acc-body ol.steps li {
+      margin-bottom: 0.45rem;
+    }
+    .acc-body ol.steps li:last-child {
+      margin-bottom: 0;
+    }
+    .icon-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem;
+      margin-top: 1.25rem;
+      padding-top: 1.15rem;
+      border-top: 1px solid var(--line);
+    }
+    a.icon-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.55rem 0.9rem 0.55rem 0.7rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--navy);
+      transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    a.icon-link:hover {
+      background: #f4f5fa;
+      border-color: #b8c0d4;
+      box-shadow: 0 2px 8px rgba(0, 0, 50, 0.06);
+    }
+    a.icon-link svg {
+      flex-shrink: 0;
+    }
+    a.icon-link.primary {
+      background: var(--navy);
+      color: #fff;
+      border-color: var(--navy);
+    }
+    a.icon-link.primary:hover {
+      background: var(--navy-hover);
+      border-color: var(--navy-hover);
+    }
+    a.icon-link span.label {
+      padding-right: 0.2rem;
+    }
+    .extra {
+      font-size: 0.86rem;
+      color: var(--muted);
+      margin: 0.9rem 0 0 0;
+      padding-top: 0.9rem;
+      border-top: 1px dashed var(--line);
+    }
+    .extra a {
+      color: var(--navy);
+      font-weight: 600;
+    }
+    code {
+      font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+      font-size: 0.86em;
+      background: #eef0f4;
+      padding: 0.1em 0.38em;
+      border-radius: 4px;
+    }
+    footer {
+      margin-top: 2.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--line);
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <div class="hero-inner">
+      <img
+        class="hero-logo"
+        src="https://ik.imagekit.io/g80rgijyo/avnzor-email-assets/logo.png"
+        width="200"
+        height="48"
+        alt="Avnzor"
+      />
+      <div class="eyebrow">Documentation</div>
+      <h1>Feedback email templates</h1>
+      <p class="lead">
+        Internal reference for campaign and CRM teams. Download ready-to-use HTML, or the merge version with placeholders
+        and the field table for tools such as HubSpot, Salesforce, or your ESP.
+      </p>
+    </div>
+  </div>
+
+  <div class="page">
+    <section class="intro" aria-labelledby="about-heading">
+      <h2 id="about-heading" class="section-title" style="margin-top:0;margin-bottom:0.6rem">About this page</h2>
+      <p>
+        This site hosts three deliverables: a final <strong>English</strong> message, a final <strong>Arabic</strong> (RTL) message,
+        and a single <strong>CRM</strong> template with <code>{{placeholders}}</code> plus a separate <strong>field guide</strong> (English/Arabic example text).
+        Use the sections below to preview or download each file, and follow the short setup notes inside each block.
+      </p>
+    </section>
+
+    <h2 class="section-title">Templates</h2>
+    <div class="accordion" id="acc">
+
+      <details class="acc-item" data-accordion>
+        <summary>
+          <span class="acc-title">
+            <span class="acc-num" aria-hidden="true">1</span>
+            English (LTR) template
+          </span>
+          <svg class="acc-chev" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </summary>
+        <div class="acc-body">
+          <h3>File</h3>
+          <p class="file-meta"><code>avnzor-feedback-email.html</code> &middot; LTR, English copy only</p>
+          <h3>About this template</h3>
+          <p class="desc">
+            Fixed layout: header, body with headline and CTA, feature strip, footer with social, contact, and center logo. Images and
+            links point to live Avnzor assets and channels. No merge tags; use as-is for English sends or as a design reference.
+          </p>
+          <h3>How to use</h3>
+          <ol class="steps">
+            <li>Import the file into your email or CRM (HTML content block) or hand it to your email developer.</li>
+            <li>Point the CTA to your real survey or feedback form URL in the code.</li>
+            <li>Test in major clients (Gmail, Outlook) before scheduling the campaign.</li>
+          </ol>
+          <div class="icon-row" role="group" aria-label="English template actions">
+            <a class="icon-link primary" href="avnzor-feedback-email.html" target="_blank" rel="noopener" title="Open preview in a new tab">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+              <span class="label">Preview</span>
+            </a>
+            <a class="icon-link" href="avnzor-feedback-email.html" download="avnzor-feedback-email.html" title="Download HTML file">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <path d="M7 10l5 5 5-5" />
+                <path d="M12 15V3" />
+              </svg>
+              <span class="label">Download</span>
+            </a>
+          </div>
+        </div>
+      </details>
+
+      <details class="acc-item" data-accordion>
+        <summary>
+          <span class="acc-title">
+            <span class="acc-num" aria-hidden="true">2</span>
+            Arabic (RTL) template
+          </span>
+          <svg class="acc-chev" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </summary>
+        <div class="acc-body">
+          <h3>File</h3>
+          <p class="file-meta"><code>avnzor-feedback-email-ar.html</code> &middot; RTL, Arabic copy</p>
+          <h3>About this template</h3>
+          <p class="desc">
+            Same structure as the English file with <code>dir=&quot;rtl&quot;</code> and <code>lang=&quot;ar&quot;</code> set on the document, wrapper, and
+            <code>Content-Language</code> metadata. Contact lines that must stay LTR (phone, email) use a dedicated class. No merge tags.
+          </p>
+          <h3>How to use</h3>
+          <ol class="steps">
+            <li>Import the HTML the same way as the English file; your ESP may let you set message language to Arabic for analytics.</li>
+            <li>Update the CTA to your real survey or bilingual form link.</li>
+            <li>Run an inbox test for RTL: Gmail, Apple Mail, and Outlook in web and desktop.</li>
+          </ol>
+          <div class="icon-row" role="group" aria-label="Arabic template actions">
+            <a class="icon-link primary" href="avnzor-feedback-email-ar.html" target="_blank" rel="noopener" title="Open preview in a new tab">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+              <span class="label">Preview</span>
+            </a>
+            <a class="icon-link" href="avnzor-feedback-email-ar.html" download="avnzor-feedback-email-ar.html" title="Download HTML file">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <path d="M7 10l5 5 5-5" />
+                <path d="M12 15V3" />
+              </svg>
+              <span class="label">Download</span>
+            </a>
+          </div>
+        </div>
+      </details>
+
+      <details class="acc-item" data-accordion>
+        <summary>
+          <span class="acc-title">
+            <span class="acc-num" aria-hidden="true">3</span>
+            CRM template and placeholders
+          </span>
+          <svg class="acc-chev" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </summary>
+        <div class="acc-body">
+          <h3>Files</h3>
+          <p class="file-meta"><code>avnzor-feedback-email-CRM.html</code> (merge) &middot; <code>avnzor-feedback-email-CRM-FIELDS.html</code> (field guide)</p>
+          <h3>About these files</h3>
+          <p class="desc">
+            The <strong>CRM</strong> file reuses the same design but replaces translatable text, document language, and the survey
+            CTA with <code>{{...}}</code> tags. One file can back both English and Arabic if your tool fills <code>lang</code> and
+            <code>dir</code> plus copy per audience. The <strong>field guide</strong> lists every token with example English and Arabic
+            phrasing, for mapping into HubSpot, Salesforce, Marketo, or similar. Social, contact, and static icon URLs are hardcoded
+            in the template.
+          </p>
+          <h3>How to use</h3>
+          <ol class="steps">
+            <li>Open the field guide and copy or import it into a spreadsheet or Google Doc for localization handoff.</li>
+            <li>Wire each <code>{{placeholder}}</code> in the CRM file to a platform merge field, or do a one-time replace for a static test.</li>
+            <li>Set <code>{{CTA_URL}}</code> to the live feedback or survey link (per send or per contact, depending on your data).</li>
+            <li>After merge, test send to internal addresses before the full send.</li>
+          </ol>
+          <p class="extra">
+            Field reference (EN/AR):
+            <a href="avnzor-feedback-email-CRM-FIELDS.html" target="_blank" rel="noopener">open guide</a>
+            or
+            <a href="avnzor-feedback-email-CRM-FIELDS.html" download>download the guide as HTML</a>.
+          </p>
+          <div class="icon-row" role="group" aria-label="CRM template actions">
+            <a class="icon-link primary" href="avnzor-feedback-email-CRM.html" target="_blank" rel="noopener" title="Open CRM template preview in a new tab">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+              <span class="label">Preview</span>
+            </a>
+            <a class="icon-link" href="avnzor-feedback-email-CRM.html" download="avnzor-feedback-email-CRM.html" title="Download CRM template HTML file">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <path d="M7 10l5 5 5-5" />
+                <path d="M12 15V3" />
+              </svg>
+              <span class="label">Download</span>
+            </a>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <footer>
+      Avnzor. Resources on this page are for email and CRM setup (preview, download, field reference).
+    </footer>
+  </div>
+  <script>
+    (function () {
+      var items = document.querySelectorAll("details[data-accordion]");
+      items.forEach(function (d) {
+        d.addEventListener("toggle", function () {
+          if (d.open) {
+            items.forEach(function (x) {
+              if (x !== d) {
+                x.open = false;
+              }
+            });
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Avnzor – We value your feedback</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      width: 100%;
+    }
+
+    body {
+      width: 100%;
+      min-width: 0;
+      background-color: #ebebeb;
+      font-family: 'Helvetica Neue', Helvetica, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, Tahoma, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
+    /* Arabic-capable fallbacks when document is RTL */
+    [dir="rtl"] body,
+    html[dir="rtl"] {
+      font-family: 'Helvetica Neue', Helvetica, -apple-system, BlinkMacSystemFont, 'Segoe UI', Tahoma, 'Noto Sans Arabic', 'Noto Naskh Arabic', Arial, sans-serif;
+    }
+
+    /* Phone / email / URL in Arabic layout: keep Latin & digits LTR for readability */
+    .text-ltr {
+      direction: ltr;
+      unicode-bidi: isolate;
+    }
+
+    /* Full-width gray; main email column is 60% centered (20% gray each side) */
+    .wrapper {
+      width: 100%;
+      min-width: 0;
+      background-color: #ebebeb;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .container {
+      width: 50%;
+      max-width: 100%;
+      margin-inline: auto;
+      overflow-x: hidden;
+      box-sizing: border-box;
+    }
+
+    img {
+      border: 0;
+      outline: none;
+      text-decoration: none;
+      -ms-interpolation-mode: bicubic;
+    }
+
+    /* HEADER */
+    .header {
+      background-color: #000046;
+      padding: 26px 36px;
+      text-align: start;
+    }
+
+    .header img {
+      height: 42px;
+      max-width: 100%;
+      width: auto;
+      display: block;
+    }
+
+    /* BODY */
+    .body-section {
+      background-color: #ffffff;
+      padding: 52px 44px 48px;
+      min-width: 0;
+      overflow-x: hidden;
+    }
+
+    .body-section h1 {
+      font-size: 30px;
+      font-weight: 800;
+      color: #111111;
+      line-height: 1.2;
+      margin-bottom: 18px;
+      letter-spacing: -0.3px;
+    }
+
+    .body-section p.sub {
+      font-size: 16px;
+      color: #777777;
+      line-height: 1.65;
+      margin-bottom: 38px;
+    }
+
+    .btn-wrap {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #000046;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 17px;
+      font-weight: 600;
+      padding: 18px 72px;
+      border-radius: 50px;
+    }
+
+    .sign-off-line {
+      font-size: 15px;
+      color: #444444;
+      margin-bottom: 4px;
+    }
+
+    .sign-off-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: #111111;
+    }
+
+    /* FEATURES STRIP */
+    .features {
+      background-color: #000046;
+      padding: 30px 20px;
+      min-width: 0;
+      overflow-x: hidden;
+      text-align: start;
+    }
+
+    .features table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+
+    .features td {
+      width: 33.33%;
+      text-align: start;
+      padding: 0 10px;
+      vertical-align: top;
+    }
+
+    .feat-icon {
+      font-size: 20px;
+      margin-bottom: 8px;
+      display: block;
+      text-align: start;
+    }
+
+    .feat-icon img {
+      display: block;
+    }
+
+    .feat-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    .feat-desc {
+      font-size: 11.5px;
+      color: #9aaac4;
+      line-height: 1.5;
+      display: block;
+    }
+
+    /* FOOTER */
+    .footer {
+      background-color: #FBFBFB;
+      padding: 44px 32px 40px;
+      min-width: 0;
+      overflow-x: hidden;
+    }
+
+    .footer table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+
+    .footer td {
+      vertical-align: middle;
+      min-width: 0;
+    }
+
+    .td-left {
+      width: 32%;
+      padding-inline-end: 12px;
+    }
+
+    .td-mid {
+      width: 36%;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    .td-right {
+      width: 32%;
+      padding-inline-start: 20px;
+      text-align: start;
+      vertical-align: middle;
+    }
+
+    /* ← Increased left padding to push content right */
+
+    .support-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: #111111;
+      margin-bottom: 5px;
+    }
+
+    .copy {
+      font-size: 12.5px;
+      color: #aaaaaa;
+    }
+
+    .copy a {
+      color: #111111;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .socials {
+      margin-top: 26px;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .soc {
+      color: #353E5C;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .soc svg {
+      width: 18px;
+      height: 18px;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .soc svg,
+    .soc svg path {
+      fill: #353E5C;
+    }
+
+    /* footer logo circle */
+    .logo-circle {
+      width: 150px;
+      height: 150px;
+      background-color: #000046;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: 0 6px 28px rgba(0, 0, 70, 0.22);
+    }
+
+    .logo-circle img {
+      width: 118px;
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* contact pill rows */
+    .contact-badges {
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+      min-width: 0;
+      max-width: 100%;
+      align-items: start;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: start;
+      padding: 8px 12px;
+      gap: 8px;
+      background: #FFFFFF;
+      border: 0.5px solid #F4F7FB;
+      box-shadow: 0px 0.78px 1.57px rgba(85, 108, 135, 0.13);
+      border-radius: 60px;
+      text-decoration: none;
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
+    }
+
+    .contact-row svg {
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+    }
+
+    .contact-row svg,
+    .contact-row svg path {
+      fill: #353E5C;
+    }
+
+    .contact-row span {
+      font-size: 12px;
+      font-weight: 500;
+      color: #737F94;
+      line-height: 1.35;
+      flex: 1 1 auto;
+      min-width: 0;
+      white-space: normal;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+      text-align: start;
+    }
+
+    /* Wide footer: keep pills only as wide as content, but never past the column */
+    @media only screen and (min-width: 901px) {
+      .contact-badges {
+        align-items: start;
+      }
+
+      .contact-row {
+        width: auto;
+        max-width: 100%;
+      }
+    }
+
+    /* —— Large screens: use the width; scale type & icons to match —— */
+    @media only screen and (min-width: 700px) {
+      .header {
+        padding: 30px 48px;
+      }
+
+      .header img {
+        height: 48px;
+      }
+
+      .body-section {
+        padding: 56px 56px 52px;
+      }
+
+      .body-section h1 {
+        font-size: clamp(30px, 3.2vw, 40px);
+      }
+
+      .body-section p.sub {
+        font-size: 18px;
+        max-width: 52em;
+      }
+
+      .btn {
+        font-size: 18px;
+        padding: 20px 80px;
+      }
+
+      .features {
+        padding: 36px 32px;
+      }
+
+      .feat-title {
+        font-size: 14px;
+      }
+
+      .feat-desc {
+        font-size: 12.5px;
+      }
+
+      .footer {
+        padding: 48px 40px 44px;
+      }
+
+      .support-title {
+        font-size: 18px;
+      }
+
+      .copy {
+        font-size: 13.5px;
+      }
+
+      .socials {
+        gap: 18px;
+      }
+
+      .soc svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      .logo-circle {
+        width: 170px;
+        height: 170px;
+      }
+
+      .logo-circle img {
+        width: 132px;
+      }
+
+      .contact-row {
+        padding: 9px 14px;
+        gap: 9px;
+      }
+
+      .contact-row svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      .contact-row span {
+        font-size: 14px;
+      }
+    }
+
+    @media only screen and (min-width: 1100px) {
+      .body-section {
+        padding: 64px 72px 56px;
+      }
+    }
+
+    /* —— Sm / Md / tablet: stack + wrap so pills stay inside the box (was overflowing 601px–~900px) —— */
+    @media only screen and (max-width: 900px) {
+      .header {
+        padding: 20px 20px;
+        text-align: center;
+      }
+
+      .header img {
+        height: auto;
+        max-height: 40px;
+        margin-inline: auto;
+      }
+
+      .body-section {
+        padding: 36px 22px 32px;
+      }
+
+      .body-section h1 {
+        font-size: clamp(22px, 6.5vw, 28px);
+        margin-bottom: 14px;
+      }
+
+      .body-section p.sub {
+        font-size: 15px;
+        margin-bottom: 28px;
+      }
+
+      .btn-wrap {
+        margin-bottom: 36px;
+      }
+
+      .btn {
+        display: block;
+        max-width: 100%;
+        padding: 16px 24px;
+        font-size: 16px;
+        text-align: center;
+        box-sizing: border-box;
+      }
+
+      .features {
+        padding: 24px 16px;
+      }
+
+      .features table,
+      .features tbody,
+      .features tr {
+        width: 100% !important;
+      }
+
+      .features td {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box;
+        padding: 16px 12px !important;
+        text-align: start;
+      }
+
+      .features td + td {
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      .feat-title {
+        font-size: 14px;
+      }
+
+      .feat-desc {
+        font-size: 12px;
+      }
+
+      .footer {
+        padding: 32px 18px 28px;
+      }
+
+      .footer table,
+      .footer tbody,
+      .footer tr {
+        width: 100% !important;
+      }
+
+      .footer td {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box;
+        padding: 0 !important;
+        text-align: center !important;
+      }
+
+      .td-left,
+      .td-mid,
+      .td-right {
+        width: 100% !important;
+      }
+
+      .td-mid {
+        margin: 24px 0;
+      }
+
+      .footer td.td-left {
+        text-align: start !important;
+      }
+
+      .footer td.td-right {
+        text-align: start !important;
+      }
+
+      .td-right {
+        margin-top: 8px;
+      }
+
+      .socials {
+        margin-top: 18px;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .logo-circle {
+        width: min(150px, 70vw);
+        height: min(150px, 70vw);
+      }
+
+      .contact-badges {
+        align-items: start;
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .contact-row {
+        width: 100%;
+        max-width: 100%;
+        justify-content: start;
+        box-sizing: border-box;
+        padding: 8px 14px;
+      }
+
+      .contact-row span {
+        white-space: normal;
+        word-break: break-word;
+        text-align: start;
+      }
+    }
+
+    @media only screen and (max-width: 380px) {
+      .body-section {
+        padding: 28px 16px 24px;
+      }
+
+      .socials {
+        gap: 10px;
+      }
+
+      .soc svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      .contact-row svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      .contact-row span {
+        font-size: 11px;
+      }
+    }
+  </style>
+</head>
+
+<body dir="ltr" lang="en">
+  <div class="wrapper" lang="en" dir="ltr">
+    <div class="container">
+
+      <!-- HEADER -->
+      <div class="header">
+        <img src="https://ik.imagekit.io/g80rgijyo/avnzor-email-assets/logo.png" alt="Avnzor" />
+      </div>
+
+      <!-- BODY -->
+      <div class="body-section">
+        <h1>We value your feedback</h1>
+        <p class="sub">Help us improve — share your thoughts through this quick and simple survey. It'll only take a
+          minute</p>
+        <div class="btn-wrap">
+          <a href="#" class="btn">Begin Survey</a>
+        </div>
+        <p class="sign-off-line">Best Regards</p>
+        <p class="sign-off-name">Avnzor Team</p>
+      </div>
+
+      <!-- FEATURES STRIP -->
+      <div class="features">
+        <table>
+          <tr>
+            <td>
+              <span class="feat-icon">
+                <img src="https://ik.imagekit.io/g80rgijyo/avnzor-email-assets/icon-delivery.png" width="26" alt="" />
+              </span>
+              <span class="feat-title">Free shipping</span>
+              <span class="feat-desc">All Orders over 150 SAR with free fees, no surprises.</span>
+            </td>
+            <td>
+              <span class="feat-icon">
+                <img src="https://ik.imagekit.io/g80rgijyo/avnzor-email-assets/icon-returns.png" width="26" alt="" />
+              </span>
+              <span class="feat-title">Easy returns</span>
+              <span class="feat-desc">Changed your mind? Return unused products hassle-free.</span>
+            </td>
+            <td>
+              <span class="feat-icon">
+                <img src="https://ik.imagekit.io/g80rgijyo/avnzor-email-assets/icon-trusted.png" width="26" alt="" />
+              </span>
+              <span class="feat-title">Trusted by thousands</span>
+              <span class="feat-desc">Join thousands of happy customers who shop with us every month.</span>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- FOOTER -->
+      <div class="footer">
+        <table>
+          <tr>
+            <!-- LEFT -->
+            <td class="td-left">
+              <p class="support-title">Customer Support</p>
+              <p class="copy">Copyright © 2026 <a href="https://www.avnzor.com">Avnzor</a></p>
+              <div class="socials">
+                <a href="https://www.instagram.com/avnzormiddleeast?igsh=bXBqZnQ1ZTB1Y3o4&amp;utm_source=qr" class="soc" title="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" role="img"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077" fill="#353E5C"/></svg></a>
+                <a href="https://x.com/avenzurworld?s=21&amp;t=xEOXr3d7xGEKpoBlTk6b1g" class="soc" title="X"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" role="img"><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z" fill="#353E5C"/></svg></a>
+                <a href="https://www.tiktok.com/@avnzor?_r=1&amp;_t=ZS-95sfwiO3QiS" class="soc" title="TikTok"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" role="img"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" fill="#353E5C"/></svg></a>
+                <a href="https://www.facebook.com/61584698177813/" class="soc" title="Facebook"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" role="img"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z" fill="#353E5C"/></svg></a>
+                <a href="https://www.linkedin.com/company/avnzor/" class="soc" title="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" role="img"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" fill="#353E5C"/></svg></a>
+                <a href="https://snapchat.com/t/fnjmSxn3" class="soc" title="Snapchat"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" role="img"><path d="M12.206.793c.99 0 4.347.276 5.93 3.821.529 1.193.403 3.219.299 4.847l-.003.06c-.012.18-.022.345-.03.51.075.045.203.09.401.09.3-.016.659-.12 1.033-.301.165-.088.344-.104.464-.104.182 0 .359.029.509.09.45.149.734.479.734.838.015.449-.39.839-1.213 1.168-.089.029-.209.075-.344.119-.45.135-1.139.36-1.333.81-.09.224-.061.524.12.868l.015.015c.06.136 1.526 3.475 4.791 4.014.255.044.435.27.42.509 0 .075-.015.149-.045.225-.24.569-1.273.988-3.146 1.271-.059.091-.12.375-.164.57-.029.179-.074.36-.134.553-.076.271-.27.405-.555.405h-.03c-.135 0-.313-.031-.538-.074-.36-.075-.765-.135-1.273-.135-.3 0-.599.015-.913.074-.6.104-1.123.464-1.723.884-.853.599-1.826 1.288-3.294 1.288-.06 0-.119-.015-.18-.015h-.149c-1.468 0-2.427-.675-3.279-1.288-.599-.42-1.107-.779-1.707-.884-.314-.045-.629-.074-.928-.074-.54 0-.958.089-1.272.149-.211.043-.391.074-.54.074-.374 0-.523-.224-.583-.42-.061-.192-.09-.389-.135-.567-.046-.181-.105-.494-.166-.57-1.918-.222-2.95-.642-3.189-1.226-.031-.063-.052-.15-.055-.225-.015-.243.165-.465.42-.509 3.264-.54 4.73-3.879 4.791-4.02l.016-.029c.18-.345.224-.645.119-.869-.195-.434-.884-.658-1.332-.809-.121-.029-.24-.074-.346-.119-1.107-.435-1.257-.93-1.197-1.273.09-.479.674-.793 1.168-.793.146 0 .27.029.383.074.42.194.789.3 1.104.3.234 0 .384-.06.465-.105l-.046-.569c-.098-1.626-.225-3.651.307-4.837C7.392 1.077 10.739.807 11.727.807l.419-.015h.06z" fill="#353E5C"/></svg></a>
+              </div>
+            </td>
+
+            <!-- CENTER logo circle -->
+            <td class="td-mid">
+              <div class="logo-circle">
+                <img src="https://ik.imagekit.io/g80rgijyo/avnzor-email-assets/logo.png" alt="Avnzor" />
+              </div>
+            </td>
+
+            <!-- RIGHT contacts - pushed a bit to the right -->
+            <td class="td-right">
+              <div class="contact-badges">
+                <a href="tel:+966115030438" class="contact-row">
+                  <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill-rule="evenodd" d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z" clip-rule="evenodd" fill="#353E5C"/></svg>
+                  <span class="text-ltr">+966 11 503 0438</span>
+                </a>
+                <a href="mailto:Customercare@avnzor.com" class="contact-row">
+                  <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" fill="#353E5C"/><path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" fill="#353E5C"/></svg>
+                  <span class="text-ltr">Customercare@avnzor.com</span>
+                </a>
+                <a href="https://www.avnzor.com" class="contact-row">
+                  <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21.721 12.752a9.711 9.711 0 00-.945-5.003 12.754 12.754 0 01-4.339 2.708 18.991 18.991 0 01-.214 4.772 17.165 17.165 0 005.498-2.477zM14.634 15.55a17.324 17.324 0 00.332-4.647c-.952.227-1.945.347-2.966.347-1.021 0-2.014-.12-2.966-.347a17.515 17.515 0 00.332 4.647 17.385 17.385 0 005.268 0zM9.772 17.119a18.963 18.963 0 004.456 0A17.182 17.182 0 0112 21.724a17.18 17.18 0 01-2.228-4.605zM7.777 15.23a18.87 18.87 0 01-.214-4.774 12.753 12.753 0 01-4.34-2.708 9.711 9.711 0 00-.944 5.004 17.165 17.165 0 005.498 2.477zM21.356 14.752a9.765 9.765 0 01-7.478 6.817 18.64 18.64 0 001.988-4.718 18.627 18.627 0 005.49-2.098zM2.644 14.752c1.682.971 3.53 1.688 5.49 2.099a18.64 18.64 0 001.988 4.718 9.765 9.765 0 01-7.478-6.816zM13.878 2.43a9.755 9.755 0 016.116 3.986 11.267 11.267 0 01-3.746 2.504 18.63 18.63 0 00-2.37-6.49zM12 2.276a17.152 17.152 0 012.805 7.121c-.897.23-1.837.353-2.805.353-.968 0-1.908-.122-2.805-.353A17.151 17.151 0 0112 2.276zM10.122 2.43a18.629 18.629 0 00-2.37 6.49 11.266 11.266 0 01-3.746-2.504 9.754 9.754 0 016.116-3.985z" fill="#353E5C"/></svg>
+                  <span class="text-ltr">www.avnzor.com</span>
+                </a>
+                <a href="https://wa.me/966115030438" class="contact-row">
+                  <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path
+                      fill="#353E5C" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" />
+                  </svg>
+                  <span class="text-ltr">+966 11 503 0438</span>
+                </a>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</body>
+
+</html>

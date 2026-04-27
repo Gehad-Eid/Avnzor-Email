@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Avnzor feedback email: CRM merge fields (EN / AR)</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.5;
+      color: #1a1a1a;
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1.5rem 3rem;
+    }
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      border-bottom: 2px solid #000046;
+      padding-bottom: 0.5rem;
+      margin-top: 0;
+    }
+    h2 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-top: 2rem;
+      color: #000046;
+    }
+    p.note {
+      background: #f5f6f8;
+      border-left: 4px solid #000046;
+      padding: 0.75rem 1rem;
+      font-size: 0.95rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      margin: 0.75rem 0 1.25rem;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 0.5rem 0.65rem;
+      vertical-align: top;
+      text-align: left;
+    }
+    th {
+      background: #000046;
+      color: #fff;
+      font-weight: 600;
+    }
+    tr:nth-child(even) td {
+      background: #fafafa;
+    }
+    code {
+      font-family: ui-monospace, "Cascadia Code", "Consolas", monospace;
+      font-size: 0.88em;
+      background: #eef0f4;
+      padding: 0.1em 0.35em;
+      border-radius: 3px;
+    }
+    .muted {
+      color: #555;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Avnzor feedback email (CRM): merge fields and copy (English / Arabic)</h1>
+  <p class="muted">Reference for implementing <code>avnzor-feedback-email-CRM.html</code>. Replace each <code>{{FIELD_NAME}}</code> in the HTML with your platform’s merge syntax, or with the values below for static sends.</p>
+
+  <p class="note"><strong>Survey link:</strong> <code>{{CTA_URL}}</code> must be the real feedback/survey URL (often the same in both languages if the form is bilingual). Set this per campaign or per contact, depending on your tool.</p>
+
+  <h2>1. Document &amp; language</h2>
+  <p class="muted">Use these together so the email renders LTR in English and RTL in Arabic.</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Field (placeholder)</th>
+        <th>English</th>
+        <th>Arabic</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><code>{{HTML_LANG}}</code></td><td>en</td><td>ar</td></tr>
+      <tr><td><code>{{HTML_DIR}}</code></td><td>ltr</td><td>rtl</td></tr>
+      <tr><td><code>{{BODY_DIR}}</code></td><td>ltr</td><td>rtl</td></tr>
+      <tr><td><code>{{BODY_LANG}}</code></td><td>en</td><td>ar</td></tr>
+      <tr><td><code>{{WRAPPER_LANG}}</code></td><td>en</td><td>ar</td></tr>
+      <tr><td><code>{{WRAPPER_DIR}}</code></td><td>ltr</td><td>rtl</td></tr>
+      <tr><td><code>{{CONTENT_LANG}}</code></td><td>en</td><td>ar</td></tr>
+    </tbody>
+  </table>
+
+  <h2>2. Main copy</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Field</th>
+        <th>English</th>
+        <th>Arabic</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>{{EMAIL_TITLE}}</code></td>
+        <td>Avnzor – We value your feedback</td>
+        <td>أڤنزور – نرغب بسماع رأيك</td>
+      </tr>
+      <tr>
+        <td><code>{{BRAND_NAME}}</code></td>
+        <td>Avnzor</td>
+        <td>أڤنزور</td>
+      </tr>
+      <tr>
+        <td><code>{{H1}}</code></td>
+        <td>We value your feedback</td>
+        <td>نقدّر ملاحظاتك</td>
+      </tr>
+      <tr>
+        <td><code>{{BODY_LEAD}}</code></td>
+        <td>Help us improve. Share your thoughts in this short survey; it only takes a minute.</td>
+        <td>ساعدنا على التحسين. شاركنا رأيك في هذا الاستبيان القصير، ولن يستغرق منك سوى دقيقة.</td>
+      </tr>
+      <tr>
+        <td><code>{{CTA_URL}}</code></td>
+        <td colspan="2"><em>Use your live survey URL (<code>https://…</code>). The same link can work for both languages if the form is bilingual.</em></td>
+      </tr>
+      <tr>
+        <td><code>{{CTA_LABEL}}</code></td>
+        <td>Begin survey</td>
+        <td>ابدأ الاستبيان</td>
+      </tr>
+      <tr>
+        <td><code>{{SIGN_OFF_LINE}}</code></td>
+        <td>Best regards</td>
+        <td>مع أطيب التحيات</td>
+      </tr>
+      <tr>
+        <td><code>{{TEAM_LINE}}</code></td>
+        <td>Avnzor team</td>
+        <td>فريق أڤنزور</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>3. Features row (three columns)</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Field</th>
+        <th>English</th>
+        <th>Arabic</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>{{FEAT1_TITLE}}</code></td>
+        <td>Free shipping</td>
+        <td>شحن مجاني</td>
+      </tr>
+      <tr>
+        <td><code>{{FEAT1_DESC}}</code></td>
+        <td>All orders over 150 SAR, with no hidden fees.</td>
+        <td>جميع الطلبات فوق 150 ر.س. بدون رسوم خفية.</td>
+      </tr>
+      <tr>
+        <td><code>{{FEAT2_TITLE}}</code></td>
+        <td>Easy returns</td>
+        <td>إرجاع سهل</td>
+      </tr>
+      <tr>
+        <td><code>{{FEAT2_DESC}}</code></td>
+        <td>Changed your mind? Return unused items hassle-free.</td>
+        <td>غيّر رأيك؟ أرجع المنتجات غير المستخدمة بسهولة.</td>
+      </tr>
+      <tr>
+        <td><code>{{FEAT3_TITLE}}</code></td>
+        <td>Trusted by thousands</td>
+        <td>يثق بنا الآلاف</td>
+      </tr>
+      <tr>
+        <td><code>{{FEAT3_DESC}}</code></td>
+        <td>Join thousands of happy customers who shop with us every month.</td>
+        <td>انضم إلى آلاف العملاء الراضين عن تسوقهم معنا شهرياً.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>4. Footer text</h2>
+  <p class="muted">The website link in the email footer is fixed in HTML (<code>https://www.avnzor.com</code>). The brand name next to the copyright line uses <code>{{BRAND_NAME}}</code> (see section 2).</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Field</th>
+        <th>English</th>
+        <th>Arabic</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>{{SUPPORT_TITLE}}</code></td>
+        <td>Customer support</td>
+        <td>دعم العملاء</td>
+      </tr>
+      <tr>
+        <td><code>{{COPYRIGHT_PREFIX}}</code></td>
+        <td>Copyright © 2026</td>
+        <td>حقوق النشر © 2026</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>5. Not merged in the template (fixed in HTML)</h2>
+  <p class="muted">Logos, feature icon images, phone, email, website, WhatsApp, and social network links are hardcoded in <code>avnzor-feedback-email-CRM.html</code> and are not listed as fields above.</p>
+
+  <p class="muted" style="margin-top:2rem;">End of reference</p>
+
+</body>
+</html>
